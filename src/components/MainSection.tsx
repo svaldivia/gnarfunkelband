@@ -8,25 +8,18 @@ const Layout = styled.div`
   height: 100vh;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background-image: url('/images/landing-background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @media only screen and (max-width: 780px) {
     display: grid;
     align-items: center;
-    grid-template-rows: repeat(3, 1fr);
-  }
-`;
-
-const Logo = styled.div`
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  width: 500px;
-  z-index: 1;
-
-  @media only screen and (max-width: 780px) {
-    position: initial;
-    width: 300px;
-    margin: 0 auto;
+    grid-template-rows: 1fr min-content;
   }
 `;
 
@@ -41,15 +34,23 @@ const SocialIconsWrapper = styled.div`
   }
 `;
 
+const BandImgLayout = styled.div`
+  width: 700px;
+
+  @media only screen and (max-width: 780px) {
+    width: 100vw;
+    max-width: 500px;
+  }
+`;
+
 const MainSection = () => {
   const imageData = useStaticQuery(getImages);
 
   return (
     <Layout>
-      <Logo>
-        <Img fluid={imageData.logo.childImageSharp.fluid} />
-      </Logo>
-      <Img fluid={imageData.splashImage.childImageSharp.fluid} />
+      <BandImgLayout>
+        <Img fluid={imageData.bandLandingImage.childImageSharp.fluid} />
+      </BandImgLayout>
       <SocialIconsWrapper>
         <SocialIcons />
       </SocialIconsWrapper>
@@ -62,7 +63,7 @@ export default MainSection;
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid(maxWidth: 1600) {
+      fluid(maxWidth: 900) {
         ...GatsbyImageSharpFluid_tracedSVG
       }
     }
@@ -71,10 +72,7 @@ export const fluidImage = graphql`
 
 const getImages = graphql`
   query {
-    splashImage: file(relativePath: { eq: "images/main.jpg" }) {
-      ...fluidImage
-    }
-    logo: file(relativePath: { eq: "images/logo.png" }) {
+    bandLandingImage: file(relativePath: { eq: "images/band-landing.png" }) {
       ...fluidImage
     }
   }
