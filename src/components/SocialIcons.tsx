@@ -16,8 +16,8 @@ const socialNetworkData = [
     name: 'spotify',
   },
   {
-    url: 'https://twitter.com/gnarfunkelband',
-    name: 'twitter',
+    url: 'https://www.tiktok.com/@gnarfunkelband?',
+    name: 'tiktok',
   },
   {
     url: 'https://youtube.com/channel/UCgLC96DuNoKz23AX2bGchvw',
