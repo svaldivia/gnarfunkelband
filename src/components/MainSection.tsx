@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { RefObject, useRef } from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import SocialIcons from './SocialIcons';
 
-const Layout = styled.div`
+const Layout = styled.div<{ ref: RefObject<HTMLDivElement> }>`
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -35,19 +35,24 @@ const SocialIconsWrapper = styled.div`
 `;
 
 const BandImgLayout = styled.div`
-  width: 700px;
+  aspect-ratio: 5/7;
 
   @media only screen and (max-width: 780px) {
     width: 100vw;
     max-width: 500px;
   }
+
+  @supports not (aspect-ratio: 5 / 7) {
+    width: 700px;
+  }
 `;
 
 const MainSection = () => {
   const imageData = useStaticQuery(getImages);
+  const mainSectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Layout>
+    <Layout ref={mainSectionRef}>
       <BandImgLayout>
         <Img fluid={imageData.bandLandingImage.childImageSharp.fluid} />
       </BandImgLayout>
