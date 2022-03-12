@@ -95,7 +95,7 @@ const Index = ({ data }: Props) => {
             <MusicIframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/tdZsoBjmDQI"
+              src="https://www.youtube.com/embed/V8sGvsD5g-o"
               frameBorder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
