@@ -12,6 +12,13 @@ The site runs at `http://localhost:8000`
 
 To experiment with graphql queries go to: `http://localhost:8000/___graphql`
 
+# Resources
+This site uses the following stack:
+- [Gatsby](https://www.gatsbyjs.com/docs)
+- [React js](https://reactjs.org/docs/getting-started.html)
+- [Typescript](https://www.typescriptlang.org/docs/)
+- [Netlify (hosting)](https://www.netlify.com/)
+
 ## 🧐 Gatsby-related Contents
 
     .

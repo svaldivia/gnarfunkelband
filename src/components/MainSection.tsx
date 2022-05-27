@@ -1,10 +1,10 @@
-import React, { RefObject, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import SocialIcons from './SocialIcons';
 
-const Layout = styled.div<{ ref: RefObject<HTMLDivElement> }>`
+const Layout = styled.div`
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -49,10 +49,9 @@ const BandImgLayout = styled.div`
 
 const MainSection = () => {
   const imageData = useStaticQuery(getImages);
-  const mainSectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Layout ref={mainSectionRef}>
+    <Layout>
       <BandImgLayout>
         <Img fluid={imageData.bandLandingImage.childImageSharp.fluid} />
       </BandImgLayout>
