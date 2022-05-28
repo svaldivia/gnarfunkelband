@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-// Delete
-import InstagramFeedImage from './InstagramFeedImage';
 import InstagramFeedImageElement from './InstagramFeedImageElement';
 import useInstagramPosts from '../hooks/useInstagramPosts';
 

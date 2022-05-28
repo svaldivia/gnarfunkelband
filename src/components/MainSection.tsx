@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import SocialIcons from './SocialIcons';
 
@@ -53,7 +53,10 @@ const MainSection = () => {
   return (
     <Layout>
       <BandImgLayout>
-        <Img fluid={imageData.bandLandingImage.childImageSharp.fluid} />
+        <GatsbyImage
+          image={imageData.bandLandingImage.childImageSharp.gatsbyImageData}
+          alt={'Gnarfunkel band image'}
+        />
       </BandImgLayout>
       <SocialIconsWrapper>
         <SocialIcons />
@@ -67,9 +70,7 @@ export default MainSection;
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      fluid(maxWidth: 900) {
-        ...GatsbyImageSharpFluid_tracedSVG
-      }
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 `;
