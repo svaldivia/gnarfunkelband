@@ -20,6 +20,12 @@ const Layout = styled.div`
     display: grid;
     align-items: center;
     grid-template-rows: 1fr min-content;
+    background-attachment: scroll;
+  }
+
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    grid-template-columns: 1fr min-content;
+    padding: 0 3rem;
   }
 `;
 
@@ -37,9 +43,14 @@ const SocialIconsWrapper = styled.div`
 const BandImgLayout = styled.div`
   aspect-ratio: 5/7;
 
-  @media only screen and (max-width: 780px) {
+  @media only screen and (max-width: 500px) {
     width: 100vw;
     max-width: 500px;
+  }
+
+  @media only screen and (min-width: 500px) and (max-width: 780px) {
+    aspect-ratio: unset;
+    max-width: 220px;
   }
 
   @supports not (aspect-ratio: 5 / 7) {
@@ -70,7 +81,7 @@ export default MainSection;
 export const fluidImage = graphql`
   fragment fluidImage on File {
     childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
+      gatsbyImageData(layout: FULL_WIDTH, placeholder: TRACED_SVG)
     }
   }
 `;
