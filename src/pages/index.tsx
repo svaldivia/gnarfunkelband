@@ -79,7 +79,6 @@ const Index = ({ data }: Props) => {
     <>
       <SEO title={siteTitle} />
       <MainSection />
-
       <Content>
         <Section>
           <SectionTitle>Our Music</SectionTitle>
