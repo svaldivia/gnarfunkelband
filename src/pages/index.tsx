@@ -8,6 +8,8 @@ import SEO from '../components/seo';
 import MainSection from '../components/MainSection';
 import InstagramFeed from '../components/InstagramFeed';
 
+const musicVideoIds = ['VO7RCgaWIPc', 'V8sGvsD5g-o', 'PHtWl9hFjBU'];
+
 const Section = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,6 +47,8 @@ const MusicIframe = styled.iframe`
 
     &:last-child {
       padding: 0;
+      margin-bottom: 0;
+      background-color: pink;
     }
   }
 `;
@@ -82,28 +86,22 @@ const Index = ({ data }: Props) => {
 
       <Content>
         <Section>
-          <SectionTitle>Our Music</SectionTitle>
+          <SectionTitle id="our-music">Our Music</SectionTitle>
           <MusicLayout>
-            {/* <MusicIframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/biw8ToAzRTY"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            /> */}
-            <MusicIframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/V8sGvsD5g-o"
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            {musicVideoIds.map(id => (
+              <MusicIframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${id}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ))}
             <MusicIframe
               src="https://open.spotify.com/embed/artist/2mwAEuKKSnlOQouag2TUe5"
               width="560"
-              height="315"
+              height="180"
               frameBorder="0"
               allowtransparency="true"
               allow="encrypted-media"
@@ -111,7 +109,7 @@ const Index = ({ data }: Props) => {
           </MusicLayout>
         </Section>
         <Section>
-          <SectionTitle>See Us Live</SectionTitle>
+          <SectionTitle id={'see-us-live'}>See Us Live</SectionTitle>
           <SongkickWidget>
             <a
               className="songkick-widget"
@@ -124,7 +122,7 @@ const Index = ({ data }: Props) => {
           </SongkickWidget>
         </Section>
         <Section>
-          <SectionTitle>Follow Us On Instagram</SectionTitle>
+          <SectionTitle id={'follow-us-on-instagram'}>Follow Us On Instagram</SectionTitle>
           <InstagramFeed />
         </Section>
       </Content>
